@@ -13,13 +13,13 @@ public class Graf<W, S> implements IGraf<W, S> {
 
     @Override
     public List<W> wierzcholki() {
-        var result = new ArrayList<>(wierzcholki);
+        List<W> result = new ArrayList<>(wierzcholki);
         return result;
     }
 
     @Override
     public S krawedz(W w1, W w2) {
-        var result = krawedzie.getOrDefault(new Pair<>(w1, w2), null);
+        S result = krawedzie.getOrDefault(new Pair<>(w1, w2), null);
         return result;
     }
 
@@ -34,36 +34,7 @@ public class Graf<W, S> implements IGraf<W, S> {
         return sasiedzi;
     }
 
-    private static class Pair<K, V> {
-        private final K poczatkowy;
-        private final V koncowy;
 
-        public Pair(K poczatkowy, V koncowy) {
-            this.poczatkowy = poczatkowy;
-            this.koncowy = koncowy;
-        }
-
-        public K getPoczatkowy() {
-            return poczatkowy;
-        }
-
-        public V getKoncowy() {
-            return koncowy;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Pair<?, ?> pair = (Pair<?, ?>) o;
-            return Objects.equals(poczatkowy, pair.poczatkowy) && Objects.equals(koncowy, pair.koncowy);
-        }
-
-        @Override
-        public int hashCode() {
-            return Objects.hash(poczatkowy, koncowy);
-        }
-    }
 
     public static void main(String[] args) {
         Set<String> wierzcholki = new HashSet<>(Arrays.asList("A", "B", "C", "D"));
