@@ -71,5 +71,6 @@ public class Graf<W, S> implements IGraf<W, S> {
         System.out.println("Wierzchołki: " + graf.wierzcholki());
         System.out.println("Krawędź A-B: " + graf.krawedz("A", "B"));
         System.out.println("Wierzchołki połączone z A: " + graf.krawedzie("A"));
+
     }
 }
