@@ -16,6 +16,9 @@ class Edge<K, V> {
     public V getKoncowy() {
         return koncowy;
     }
+    public String getDroga() {
+        return "droga: " + poczatkowy + " - " + koncowy;
+    }
 
     @Override
     public boolean equals(Object o) {
