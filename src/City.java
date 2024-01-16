@@ -31,17 +31,4 @@ public class City {
                 "'" + name + '\'' +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        City city = (City) o;
-        return Objects.equals(getName(), city.getName()) && Objects.equals(getPopulation(), city.getPopulation());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getName(), getPopulation());
-    }
 }
