@@ -65,23 +65,12 @@ class GrafTests {
         return wierzcholki;
     }
 
-    private Map<Pair<String, String>, String> createTestEdges() {
-        Map<Pair<String, String>, String> krawedzie = new HashMap<>();
-        krawedzie.put(new Pair<>("A", "B"), "Edge1");
-        krawedzie.put(new Pair<>("B", "C"), "Edge2");
-        krawedzie.put(new Pair<>("C", "D"), "Edge3");
-        krawedzie.put(new Pair<>("A", "D"), "Edge4");
+    private Map<Edge<String, String>, String> createTestEdges() {
+        Map<Edge<String, String>, String> krawedzie = new HashMap<>();
+        krawedzie.put(new Edge<>("A", "B"), "Edge1");
+        krawedzie.put(new Edge<>("B", "C"), "Edge2");
+        krawedzie.put(new Edge<>("C", "D"), "Edge3");
+        krawedzie.put(new Edge<>("A", "D"), "Edge4");
         return krawedzie;
     }
-
-/*
-    private class Student {
-        String name;
-
-        public Student(String name) {
-            this.name = name;
-        }
-    }
-*/
-
 }

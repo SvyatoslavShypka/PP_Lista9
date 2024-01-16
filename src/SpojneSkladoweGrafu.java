@@ -2,7 +2,7 @@ import java.util.*;
 
 public class SpojneSkladoweGrafu {
 
-    public static <W, S> List<List<W>> getSpojneSkadowe(IGraf<W, S> graf) {
+    public static <W, S> List<List<W>> getSpojneSkladowe(IGraf<W, S> graf) {
         List<List<W>> spojneSkladowe = new ArrayList<>();
         Set<W> odwiedzoneWierzcholki = new HashSet<>();
 
@@ -39,16 +39,16 @@ public class SpojneSkladoweGrafu {
 
     public static void main(String[] args) {
         Set<String> wierzcholki = new HashSet<>(Arrays.asList("A", "B", "C", "D", "E", "F"));
-        Map<Pair<String, String>, String> krawedzie = new HashMap<>();
-        krawedzie.put(new Pair<>("A", "B"), "Edge1");
-        krawedzie.put(new Pair<>("B", "C"), "Edge2");
-        krawedzie.put(new Pair<>("C", "A"), "Edge3");
-        krawedzie.put(new Pair<>("D", "E"), "Edge4");
-        krawedzie.put(new Pair<>("E", "F"), "Edge5");
+        Map<Edge<String, String>, String> krawedzie = new HashMap<>();
+        krawedzie.put(new Edge<>("A", "B"), "Edge1");
+        krawedzie.put(new Edge<>("B", "C"), "Edge2");
+        krawedzie.put(new Edge<>("C", "A"), "Edge3");
+        krawedzie.put(new Edge<>("D", "E"), "Edge4");
+        krawedzie.put(new Edge<>("E", "F"), "Edge5");
 
         Graf<String, String> graf = new Graf<>(wierzcholki, krawedzie);
 
-        List<List<String>> spojneSkladowe = getSpojneSkadowe(graf);
+        List<List<String>> spojneSkladowe = getSpojneSkladowe(graf);
 
         System.out.println("Spojne składowe grafu:");
         for (List<String> skladowaX : spojneSkladowe) {

@@ -1,10 +1,10 @@
 import java.util.Objects;
 
-class Pair<K, V> {
+class Edge<K, V> {
     private final K poczatkowy;
     private final V koncowy;
 
-    public Pair(K poczatkowy, V koncowy) {
+    public Edge(K poczatkowy, V koncowy) {
         this.poczatkowy = poczatkowy;
         this.koncowy = koncowy;
     }
@@ -21,7 +21,7 @@ class Pair<K, V> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Pair<?, ?> pair = (Pair<?, ?>) o;
+        Edge<?, ?> pair = (Edge<?, ?>) o;
         return Objects.equals(poczatkowy, pair.poczatkowy) && Objects.equals(koncowy, pair.koncowy);
     }
 

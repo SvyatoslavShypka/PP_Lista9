@@ -4,9 +4,9 @@ public class Graf<W, S> implements IGraf<W, S> {
     //Używamy SET bo wierzchołki nie mogą powtarzać się
     private final Set<W> wierzcholki;
     //Używamy MAP z key: Para<początkowy wierzchołek, końcowy wierzchołek>
-    private final Map<Pair<W, W>, S> krawedzie;
+    private final Map<Edge<W, W>, S> krawedzie;
 
-    public Graf(Set<W> wierzcholki, Map<Pair<W, W>, S> krawedzie) {
+    public Graf(Set<W> wierzcholki, Map<Edge<W, W>, S> krawedzie) {
         this.wierzcholki = wierzcholki;
         this.krawedzie = krawedzie;
     }
@@ -19,14 +19,14 @@ public class Graf<W, S> implements IGraf<W, S> {
 
     @Override
     public S krawedz(W w1, W w2) {
-        S result = krawedzie.getOrDefault(new Pair<>(w1, w2), null);
+        S result = krawedzie.getOrDefault(new Edge<>(w1, w2), null);
         return result;
     }
 
     @Override
     public List<W> krawedzie(W w) {
         List<W> sasiedzi = new ArrayList<>();
-        for (Map.Entry<Pair<W, W>, S> entry : krawedzie.entrySet()) {
+        for (Map.Entry<Edge<W, W>, S> entry : krawedzie.entrySet()) {
             if (entry.getKey().getPoczatkowy().equals(w)) {
                 sasiedzi.add(entry.getKey().getKoncowy());
             }
@@ -38,11 +38,12 @@ public class Graf<W, S> implements IGraf<W, S> {
 
     public static void main(String[] args) {
         Set<String> wierzcholki = new HashSet<>(Arrays.asList("A", "B", "C", "D"));
-        Map<Pair<String, String>, String> krawedzie = new HashMap<>();
-        krawedzie.put(new Pair<>("A", "B"), "Edge1");
-        krawedzie.put(new Pair<>("B", "C"), "Edge2");
-        krawedzie.put(new Pair<>("C", "D"), "Edge3");
-        krawedzie.put(new Pair<>("A", "D"), "Edge4");
+//        var wierzcholki = new HashSet<>(Arrays.asList(1, 2, 3, 4));
+        Map<Edge<String, String>, String> krawedzie = new HashMap<>();
+        krawedzie.put(new Edge<>("A", "B"), "Edge1");
+        krawedzie.put(new Edge<>("B", "C"), "Edge2");
+        krawedzie.put(new Edge<>("C", "D"), "Edge3");
+        krawedzie.put(new Edge<>("A", "D"), "Edge4");
 
         Graf<String, String> graf = new Graf<>(wierzcholki, krawedzie);
 
